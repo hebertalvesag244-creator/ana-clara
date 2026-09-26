@@ -1,379 +1,512 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
+<title>Para Ana Clara ❤️</title>
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<style>
 
-    <title>Para Ana Clara ❤️</title>
+* {
+    box-sizing: border-box;
+}
 
-    <style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #12001f, #3b0754, #12001f);
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+}
 
-        * {
-            box-sizing: border-box;
-        }
+#inicio {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
 
-        body {
+#inicio h1 {
+    font-size: 45px;
+    color: #ff8bdc;
+}
 
-            margin: 0;
+.coracao {
+    font-size: 75px;
+    animation: pulsar 1.3s infinite;
+}
 
-            font-family: Arial, sans-serif;
+@keyframes pulsar {
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #12001f,
-                    #3b0754,
-                    #12001f
-                );
+    0% {
+        transform: scale(1);
+    }
 
-            color: white;
+    50% {
+        transform: scale(1.15);
+    }
 
-            text-align: center;
+    100% {
+        transform: scale(1);
+    }
 
-            min-height: 100vh;
+}
 
-            overflow-x: hidden;
-        }
+button {
 
+    border: none;
+    padding: 15px 25px;
+    border-radius: 30px;
 
-        /* TELA INICIAL */
+    background: #ff4fa3;
+    color: white;
 
-        #inicio {
+    font-size: 17px;
 
-            min-height: 100vh;
+    cursor: pointer;
 
-            display: flex;
+    margin-top: 20px;
 
-            flex-direction: column;
+    box-shadow: 0 0 20px rgba(255,79,163,.7);
 
-            justify-content: center;
+}
 
-            align-items: center;
+#presente {
 
-            padding: 25px;
-        }
+    display: none;
 
+    padding: 35px 20px;
 
-        #inicio h1 {
+    max-width: 900px;
 
-            font-size: 45px;
+    margin: auto;
 
-            color: #ff8bdc;
+}
 
-            margin: 15px 0;
+#presente h2 {
 
-            text-shadow:
-                0 0 20px
-                rgba(255, 139, 220, 0.5);
-        }
+    color: #ff8bdc;
 
+    font-size: 32px;
 
-        #inicio p {
+}
 
-            font-size: 18px;
+.contador {
 
-            color: #eee;
-        }
+    display: flex;
 
+    flex-wrap: wrap;
 
-        /* CORAÇÃO */
+    justify-content: center;
 
-        .coracao {
+    gap: 10px;
 
-            font-size: 75px;
+    margin: 25px auto;
 
-            animation:
-                pulsar 1.3s infinite;
+}
 
-            filter:
-                drop-shadow(
-                    0 0 15px
-                    rgba(255,80,160,0.7)
-                );
-        }
+.tempo {
 
+    background: rgba(255,255,255,.1);
 
-        @keyframes pulsar {
+    border-radius: 15px;
 
-            0% {
-                transform: scale(1);
-            }
+    padding: 12px;
 
-            50% {
-                transform: scale(1.15);
-            }
+    min-width: 90px;
 
-            100% {
-                transform: scale(1);
-            }
+}
 
-        }
+.tempo strong {
 
+    display: block;
 
-        /* BOTÕES */
+    font-size: 25px;
 
-        button {
+    color: #ff8bdc;
 
-            border: none;
+}
 
-            padding: 15px 25px;
+.tempo span {
 
-            border-radius: 30px;
+    font-size: 11px;
 
-            background: #ff4fa3;
+}
 
-            color: white;
+.foto-container {
 
-            font-size: 17px;
+    margin-top: 25px;
 
-            cursor: pointer;
+}
 
-            margin-top: 20px;
+.foto-container img {
 
-            box-shadow:
-                0 0 20px
-                rgba(255,79,163,0.7);
+    width: 100%;
 
-            transition: 0.3s;
-        }
+    max-width: 600px;
 
+    border-radius: 22px;
 
-        button:hover {
+    border: 3px solid rgba(255,255,255,.3);
 
-            transform: scale(1.05);
+}
 
-        }
+.carta {
 
+    background: rgba(255,255,255,.08);
 
-        button:active {
+    border-radius: 20px;
 
-            transform: scale(0.97);
+    padding: 25px;
 
-        }
+    margin-top: 40px;
 
+    line-height: 1.8;
 
-        /* PRESENTE */
+    font-size: 17px;
 
-        #presente {
+    text-align: left;
 
-            display: none;
+}
 
-            padding: 35px 20px;
+.final {
 
-            max-width: 900px;
+    margin-top: 55px;
 
-            margin: auto;
-        }
+    padding-bottom: 60px;
 
+}
 
-        #presente h2 {
+.final h1 {
 
-            color: #ff8bdc;
+    color: #ff6fbd;
 
-            font-size: 32px;
+    font-size: 45px;
 
-            text-shadow:
-                0 0 15px
-                rgba(255,139,220,0.3);
-        }
+}
 
+@media(max-width:600px) {
 
-        /* CONTADOR */
+    #inicio h1 {
 
-        .contador {
+        font-size: 36px;
 
-            display: flex;
+    }
 
-            flex-wrap: wrap;
+    #presente {
 
-            justify-content: center;
+        padding: 30px 15px;
 
-            gap: 10px;
+    }
 
-            margin: 25px auto;
-        }
+    .final h1 {
 
+        font-size: 35px;
 
-        .tempo {
+    }
 
-            background:
-                rgba(255,255,255,0.1);
+}
 
-            border:
-                1px solid
-                rgba(255,255,255,0.2);
+</style>
 
-            border-radius: 15px;
+</head>
 
-            padding: 12px;
+<body>
 
-            min-width: 90px;
 
-            backdrop-filter: blur(5px);
-        }
+<!-- TELA INICIAL -->
 
+<section id="inicio">
 
-        .tempo strong {
+    <div class="coracao">❤️</div>
 
-            display: block;
+    <h1>ANA CLARA</h1>
 
-            font-size: 25px;
+    <p>Eu preparei uma coisa especial para você...</p>
 
-            color: #ff8bdc;
-        }
+    <button onclick="abrirPresente()">
 
+        💌 Abrir meu presente
 
-        .tempo span {
+    </button>
 
-            font-size: 11px;
+</section>
 
-            color: #ddd;
-        }
 
 
-        /* MÚSICA */
+<!-- PRESENTE -->
 
-        .musica {
+<section id="presente">
 
-            margin: 30px 0;
-        }
+    <div class="coracao">❤️</div>
 
+    <h2>Para o amor da minha vida</h2>
 
-        .musica p {
+    <p>
 
-            color: #ddd;
+        Desde 10/08/2020, minha vida ficou mais bonita com você.
 
-            font-size: 16px;
-        }
+    </p>
 
 
-        /* FOTO */
+    <!-- CONTADOR -->
 
-        .galeria {
+    <div class="contador">
 
-            margin-top: 45px;
-        }
+        <div class="tempo">
 
+            <strong id="anos">0</strong>
 
-        .foto-container {
+            <span>ANOS</span>
 
-            display: flex;
+        </div>
 
-            justify-content: center;
+        <div class="tempo">
 
-            padding: 10px;
-        }
+            <strong id="meses">0</strong>
 
+            <span>MESES</span>
 
-        .foto-container img {
+        </div>
 
-            width: 100%;
+        <div class="tempo">
 
-            max-width: 600px;
+            <strong id="dias">0</strong>
 
-            max-height: 650px;
+            <span>DIAS</span>
 
-            object-fit: cover;
+        </div>
 
-            border-radius: 22px;
+        <div class="tempo">
 
-            border:
-                3px solid
-                rgba(255,255,255,0.3);
+            <strong id="horas">0</strong>
 
-            box-shadow:
-                0 0 25px
-                rgba(255,79,163,0.4),
+            <span>HORAS</span>
 
-                0 15px 40px
-                rgba(0,0,0,0.5);
-        }
+        </div>
 
+        <div class="tempo">
 
-        /* CARTA */
+            <strong id="minutos">0</strong>
 
-        .carta {
+            <span>MINUTOS</span>
 
-            background:
-                rgba(255,255,255,0.08);
+        </div>
 
-            border-radius: 20px;
+        <div class="tempo">
 
-            padding: 25px;
+            <strong id="segundos">0</strong>
 
-            margin-top: 40px;
+            <span>SEGUNDOS</span>
 
-            line-height: 1.8;
+        </div>
 
-            font-size: 17px;
+    </div>
 
-            text-align: left;
 
-            border:
-                1px solid
-                rgba(255,255,255,0.1);
-        }
+    <!-- MÚSICA -->
 
+    <div>
 
-        .carta p:first-child {
+        <p>🎵 Astronauta • Os Nonatos</p>
 
-            color: #ff8bdc;
+        <audio id="musica" loop>
 
-            font-size: 22px;
-        }
+            <source src="astronauta.mp3" type="audio/mpeg">
 
+        </audio>
 
-        /* FINAL */
+        <button onclick="tocarMusica()" id="botaoMusica">
 
-        .final {
+            🎵 Tocar nossa música
 
-            margin-top: 55px;
+        </button>
 
-            padding-bottom: 60px;
-        }
+    </div>
 
 
-        .final h1 {
+    <!-- FOTO -->
 
-            font-size: 45px;
+    <div class="foto-container">
 
-            color: #ff6fbd;
+        <h2>📸 Um momento nosso</h2>
 
-            animation:
-                pulsar 1.5s infinite;
-        }
+        <img src="foto2.jpg" alt="Nosso momento ❤️">
 
+    </div>
 
-        /* CORAÇÕES FLUTUANTES */
 
-        .coracao-flutuante {
+    <!-- CARTA -->
 
-            position: fixed;
+    <div class="carta">
 
-            bottom: -30px;
+        <p><strong>Ana Clara,</strong></p>
 
-            font-size: 25px;
+        <p>
 
-            animation:
-                subir 6s linear forwards;
+        Desde o dia 10 de agosto de 2020, nós começamos a construir uma história que eu espero continuar escrevendo pelo resto da minha vida.
 
-            pointer-events: none;
+        </p>
 
-            z-index: 999;
-        }
+        <p>
 
+        Foram muitos momentos, muitas risadas, dificuldades, conquistas e lembranças que fizeram a nossa história ser única.
 
-        @keyframes subir {
+        </p>
 
-            from {
+        <p>
 
-                transform:
-                    translateY(0);
-```
+        Obrigado por estar comigo, por fazer parte da minha vida e por compartilhar tantos momentos ao meu lado.
 
- 
+        </p>
+
+        <p>
+
+        Eu não sei exatamente o que o futuro vai trazer para nós, mas sei que quero continuar vivendo cada capítulo ao seu lado.
+
+        </p>
+
+        <p>
+
+        Eu te amo. ❤️
+
+        </p>
+
+    </div>
+
+
+    <div class="final">
+
+        <h1>
+
+            EU TE AMO,<br>
+
+            ANA CLARA ❤️
+
+        </h1>
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+
+function abrirPresente() {
+
+    document.getElementById("inicio").style.display = "none";
+
+    document.getElementById("presente").style.display = "block";
+
+    window.scrollTo(0, 0);
+
+
+    let musica = document.getElementById("musica");
+
+    musica.play().then(function() {
+
+        document.getElementById("botaoMusica").innerHTML =
+
+            "⏸️ Pausar nossa música";
+
+    }).catch(function() {
+
+        console.log("O navegador bloqueou o autoplay.");
+
+    });
+
+}
+
+
+
+function tocarMusica() {
+
+    let musica = document.getElementById("musica");
+
+    let botao = document.getElementById("botaoMusica");
+
+
+    if (musica.paused) {
+
+        musica.play();
+
+        botao.innerHTML = "⏸️ Pausar nossa música";
+
+    } else {
+
+        musica.pause();
+
+        botao.innerHTML = "🎵 Tocar nossa música";
+
+    }
+
+}
+
+
+
+let inicio = new Date(2020, 7, 10, 0, 0, 0);
+
+
+function atualizarContador() {
+
+    let agora = new Date();
+
+    let diferenca = agora - inicio;
+
+
+    let segundosTotal = Math.floor(diferenca / 1000);
+
+
+    let segundos = segundosTotal % 60;
+
+
+    let minutosTotal = Math.floor(segundosTotal / 60);
+
+    let minutos = minutosTotal % 60;
+
+
+    let horasTotal = Math.floor(minutosTotal / 60);
+
+    let horas = horasTotal % 24;
+
+
+    let diasTotal = Math.floor(horasTotal / 24);
+
+
+    let anos = Math.floor(diasTotal / 365.25);
+
+    let meses = anos * 12;
+
+
+    document.getElementById("anos").innerText = anos;
+
+    document.getElementById("meses").innerText = meses;
+
+    document.getElementById("dias").innerText = diasTotal;
+
+    document.getElementById("horas").innerText = horas;
+
+    document.getElementById("minutos").innerText = minutos;
+
+    document.getElementById("segundos").innerText = segundos;
+
+}
+
+
+atualizarContador();
+
+setInterval(atualizarContador, 1000);
+
+
+</script>
+
+
+</body>
+
+</html>
