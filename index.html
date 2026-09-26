@@ -1,6 +1,6 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,170 +14,196 @@
 
         body {
             margin: 0;
-            min-height: 100vh;
-            background:
-                radial-gradient(circle at top, #4b0024, #15000d 55%, #050005);
-            color: white;
             font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #12001f, #3b0754, #12001f);
+            color: white;
             text-align: center;
+            min-height: 100vh;
             overflow-x: hidden;
         }
 
-        .tela {
+        /* TELA INICIAL */
+
+        .tela-inicial {
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 25px;
         }
 
-        .conteudo {
-            width: 100%;
-            max-width: 750px;
+        .tela-inicial h1 {
+            font-size: 45px;
+            margin-bottom: 10px;
+            color: #ff8bdc;
         }
 
-        h1 {
-            font-size: clamp(48px, 13vw, 100px);
-            color: #ff4d88;
-            margin: 0;
-            text-shadow:
-                0 0 10px #ff1764,
-                0 0 30px #ff1764,
-                0 0 60px #ff1764;
-        }
-
-        .subtitulo {
-            margin-top: 18px;
-            font-size: clamp(19px, 5vw, 30px);
-            color: #ffd6e3;
+        .tela-inicial p {
+            font-size: 18px;
+            color: #eee;
         }
 
         button {
-            margin-top: 40px;
-            padding: 18px 32px;
             border: none;
-            border-radius: 50px;
-            background: #ff1764;
+            padding: 15px 25px;
+            border-radius: 30px;
+            background: #ff4fa3;
             color: white;
-            font-size: 19px;
-            font-weight: bold;
+            font-size: 17px;
             cursor: pointer;
-            box-shadow: 0 0 25px #ff1764;
+            margin-top: 20px;
+            box-shadow: 0 0 20px #ff4fa3;
             transition: 0.3s;
         }
 
         button:hover {
-            transform: scale(1.08);
+            transform: scale(1.05);
         }
 
-        #presente {
+        /* PRESENTE */
+
+        .presente {
             display: none;
-        }
-
-        .mensagem {
-            margin-top: 25px;
-            font-size: clamp(19px, 4vw, 27px);
-            line-height: 1.6;
+            padding: 35px 20px;
+            max-width: 900px;
+            margin: auto;
         }
 
         .coracao {
-            font-size: 95px;
-            margin: 20px;
-            animation: pulsar 1.2s infinite;
-            filter: drop-shadow(0 0 20px #ff1764);
-        }
-
-        .contador-titulo {
-            margin-top: 45px;
-            font-size: 20px;
-            color: #ffd1df;
-        }
-
-        .contador {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-
-        .tempo {
-            min-width: 80px;
-            padding: 15px 10px;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-        }
-
-        .numero {
-            display: block;
-            font-size: 28px;
-            font-weight: bold;
-            color: #ff6b9d;
-        }
-
-        .legenda {
-            font-size: 12px;
-            color: #ffd1df;
-        }
-
-        .carta {
-            margin-top: 40px;
-            padding: 25px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(12px);
-            font-size: 18px;
-            line-height: 1.7;
-            color: #ffe8ef;
-        }
-
-        .final {
-            margin-top: 45px;
-            font-size: clamp(30px, 8vw, 55px);
-            color: #ff4d88;
-            font-weight: bold;
-            text-shadow: 0 0 20px #ff1764;
-        }
-
-        .assinatura {
-            margin-top: 20px;
-            padding-bottom: 40px;
-            color: #ffd1df;
-            font-size: 18px;
-        }
-
-        .coracao-flutuante {
-            position: fixed;
-            bottom: -50px;
-            font-size: 25px;
-            animation: subir linear forwards;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .musica {
-            margin-top: 25px;
-            color: #ffd1df;
-            font-size: 15px;
+            font-size: 75px;
+            animation: pulsar 1.3s infinite;
         }
 
         @keyframes pulsar {
-
-            0%,
-            100% {
+            0% {
                 transform: scale(1);
             }
 
             50% {
-                transform: scale(1.2);
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
             }
         }
 
-        @keyframes subir {
+        h2 {
+            color: #ff8bdc;
+            font-size: 32px;
+        }
 
+        /* CONTADOR */
+
+        .contador {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 25px auto;
+        }
+
+        .tempo {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 12px;
+            min-width: 90px;
+        }
+
+        .tempo strong {
+            display: block;
+            font-size: 25px;
+            color: #ff8bdc;
+        }
+
+        .tempo span {
+            font-size: 11px;
+            color: #ddd;
+        }
+
+        /* MÚSICA */
+
+        .musica {
+            margin: 25px 0;
+        }
+
+        .musica p {
+            color: #ddd;
+        }
+
+        /* FOTO */
+
+        .galeria {
+            margin-top: 40px;
+        }
+
+        .galeria h2 {
+            margin-bottom: 20px;
+        }
+
+        .foto-container {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .foto-container img {
+            width: 100%;
+            max-width: 600px;
+            max-height: 650px;
+            object-fit: cover;
+            border-radius: 22px;
+            border: 3px solid rgba(255,255,255,0.3);
+            box-shadow:
+                0 0 25px rgba(255,79,163,0.4),
+                0 15px 40px rgba(0,0,0,0.5);
+            transition: 0.4s;
+        }
+
+        .foto-container img:hover {
+            transform: scale(1.02);
+        }
+
+        /* CARTA */
+
+        .carta {
+            background: rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 35px;
+            line-height: 1.8;
+            font-size: 17px;
+            text-align: left;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* FINAL */
+
+        .final {
+            margin-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .final h1 {
+            font-size: 45px;
+            color: #ff6fbd;
+            animation: pulsar 1.5s infinite;
+        }
+
+        /* CORAÇÕES FLUTUANTES */
+
+        .coracao-flutuante {
+            position: fixed;
+            bottom: -30px;
+            font-size: 25px;
+            animation: subir 6s linear forwards;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        @keyframes subir {
             from {
                 transform: translateY(0);
                 opacity: 1;
@@ -189,307 +215,109 @@
             }
         }
 
-        .aparecer {
-            animation: aparecer 1.5s ease;
-        }
+        /* CELULAR */
 
-        @keyframes aparecer {
+        @media (max-width: 600px) {
 
-            from {
-                opacity: 0;
-                transform: translateY(40px);
+            .tela-inicial h1 {
+                font-size: 36px;
             }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            .presente {
+                padding: 30px 15px;
+            }
+
+            h2 {
+                font-size: 27px;
+            }
+
+            .foto-container img {
+                max-height: 500px;
+            }
+
+            .final h1 {
+                font-size: 35px;
+            }
+
+            .tempo {
+                min-width: 85px;
             }
         }
+
     </style>
 </head>
 
 <body>
 
-    <!-- ÁUDIO -->
-
-    <audio id="musica" loop>
-        <source src="astronauta.mp3" type="audio/mpeg">
-    </audio>
-
-
     <!-- TELA INICIAL -->
 
-    <section class="tela" id="inicio">
+    <div class="tela-inicial" id="inicio">
 
-        <div class="conteudo">
-
-            <h1>ANA CLARA</h1>
-
-            <div class="subtitulo">
-                Eu preparei uma coisa especial para você... ❤️
-            </div>
-
-            <button onclick="abrirPresente()">
-                💌 Abrir meu presente
-            </button>
-
+        <div class="coracao">
+            ❤️
         </div>
 
-    </section>
+        <h1>ANA CLARA</h1>
+
+        <p>
+            Eu preparei uma coisa especial para você...
+        </p>
+
+        <button onclick="abrirPresente()">
+            💌 Abrir meu presente
+        </button>
+
+    </div>
 
 
     <!-- PRESENTE -->
 
-    <section class="tela" id="presente">
+    <div class="presente" id="presente">
 
-        <div class="conteudo aparecer">
-
-            <h1>Para você ❤️</h1>
-
-            <div class="coracao">
-                ❤️
-            </div>
-
-            <div class="mensagem">
-                Amar você é uma das coisas mais bonitas
-                que a vida me permitiu conhecer.
-            </div>
-
-
-            <!-- CONTADOR -->
-
-            <div class="contador-titulo">
-                ❤️ Juntos desde 10 de agosto de 2020 ❤️
-            </div>
-
-            <div class="contador">
-
-                <div class="tempo">
-                    <span class="numero" id="anos">0</span>
-                    <span class="legenda">ANOS</span>
-                </div>
-
-                <div class="tempo">
-                    <span class="numero" id="meses">0</span>
-                    <span class="legenda">MESES</span>
-                </div>
-
-                <div class="tempo">
-                    <span class="numero" id="dias">0</span>
-                    <span class="legenda">DIAS</span>
-                </div>
-
-                <div class="tempo">
-                    <span class="numero" id="horas">0</span>
-                    <span class="legenda">HORAS</span>
-                </div>
-
-                <div class="tempo">
-                    <span class="numero" id="minutos">0</span>
-                    <span class="legenda">MINUTOS</span>
-                </div>
-
-                <div class="tempo">
-                    <span class="numero" id="segundos">0</span>
-                    <span class="legenda">SEGUNDOS</span>
-                </div>
-
-            </div>
-
-
-            <div class="musica">
-                🎵 Astronauta • Os Nonatos
-            </div>
-
-
-            <!-- CARTA -->
-
-            <div class="carta">
-
-                Ana Clara,
-
-                <br><br>
-
-                Talvez eu nunca consiga colocar em palavras
-                tudo aquilo que sinto por você.
-
-                <br><br>
-
-                Mas quero que você saiba que, entre todas
-                as pessoas que poderiam ter cruzado o meu caminho,
-                eu sou muito feliz por ter encontrado você.
-
-                <br><br>
-
-                Desde 10 de agosto de 2020,
-                nossa história vem sendo construída
-                através de momentos, sonhos, dificuldades,
-                risadas e muito amor.
-
-                <br><br>
-
-                Quero continuar vivendo tudo isso ao seu lado.
-
-                <br><br>
-
-                Quero estar com você nos dias bons,
-                nos dias difíceis e em todos os dias
-                que ainda estão por vir.
-
-                <br><br>
-
-                Se eu pudesse voltar no tempo e escolher
-                novamente...
-
-                <br><br>
-
-                Eu escolheria você.
-
-            </div>
-
-
-            <div class="final">
-                EU TE AMO, ANA CLARA ❤️
-            </div>
-
-            <div class="assinatura">
-                Feito especialmente para você.
-                <br><br>
-                10/08/2020 ❤️
-            </div>
-
+        <div class="coracao">
+            ❤️
         </div>
 
-    </section>
+        <h2>
+            Para o amor da minha vida
+        </h2>
+
+        <p>
+            Desde 10/08/2020, minha vida ficou mais bonita com você.
+        </p>
 
 
-    <script>
+        <!-- CONTADOR -->
 
-        // ABRIR PRESENTE E TOCAR MÚSICA
+        <div class="contador">
 
-        function abrirPresente() {
+            <div class="tempo">
+                <strong id="anos">0</strong>
+                <span>ANOS</span>
+            </div>
 
-            document.getElementById("inicio").style.display = "none";
+            <div class="tempo">
+                <strong id="meses">0</strong>
+                <span>MESES</span>
+            </div>
 
-            document.getElementById("presente").style.display = "flex";
+            <div class="tempo">
+                <strong id="dias">0</strong>
+                <span>DIAS</span>
+            </div>
 
-            const musica = document.getElementById("musica");
+            <div class="tempo">
+                <strong id="horas">0</strong>
+                <span>HORAS</span>
+            </div>
 
-            musica.play().catch(function () {
-                console.log("O navegador bloqueou a reprodução automática.");
-            });
+            <div class="tempo">
+                <strong id="minutos">0</strong>
+                <span>MINUTOS</span>
+            </div>
 
-            criarCoracoes();
-
-        }
-
-
-        // CONTADOR
-
-        const inicio = new Date(2020, 7, 10, 0, 0, 0);
-
-
-        function atualizarContador() {
-
-            const agora = new Date();
-
-            let anos = agora.getFullYear() - inicio.getFullYear();
-
-            let aniversario = new Date(
-                inicio.getFullYear() + anos,
-                inicio.getMonth(),
-                inicio.getDate()
-            );
-
-            if (agora < aniversario) {
-                anos--;
-                aniversario = new Date(
-                    inicio.getFullYear() + anos,
-                    inicio.getMonth(),
-                    inicio.getDate()
-                );
-            }
-
-
-            const diferenca = agora - aniversario;
-
-            const dias = Math.floor(
-                diferenca / (1000 * 60 * 60 * 24)
-            );
-
-            const horas = Math.floor(
-                (diferenca / (1000 * 60 * 60)) % 24
-            );
-
-            const minutos = Math.floor(
-                (diferenca / (1000 * 60)) % 60
-            );
-
-            const segundos = Math.floor(
-                (diferenca / 1000) % 60
-            );
-
-
-            document.getElementById("anos").textContent = anos;
-
-            document.getElementById("meses").textContent =
-                anos * 12;
-
-            document.getElementById("dias").textContent = dias;
-
-            document.getElementById("horas").textContent = horas;
-
-            document.getElementById("minutos").textContent = minutos;
-
-            document.getElementById("segundos").textContent = segundos;
-
-        }
-
-
-        atualizarContador();
-
-        setInterval(atualizarContador, 1000);
-
-
-        // CORAÇÕES
-
-        function criarCoracoes() {
-
-            setInterval(function () {
-
-                const coracao = document.createElement("div");
-
-                coracao.classList.add("coracao-flutuante");
-
-                coracao.innerHTML =
-                    ["❤️", "💕", "💗", "💖", "💓"]
-                    [Math.floor(Math.random() * 5)];
-
-                coracao.style.left =
-                    Math.random() * 100 + "vw";
-
-                coracao.style.fontSize =
-                    (15 + Math.random() * 30) + "px";
-
-                coracao.style.animationDuration =
-                    (4 + Math.random() * 4) + "s";
-
-                document.body.appendChild(coracao);
-
-
-                setTimeout(function () {
-
-                    coracao.remove();
-
-                }, 8000);
-
-            }, 500);
-
-        }
-
-    </script>
-
-</body>
-
-</html>
-
+            <div class="tempo">
+                <strong id="segundos">0</strong>
+                <span>SEGUNDOS</span>
+            </div>
+```
