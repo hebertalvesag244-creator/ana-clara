@@ -16,7 +16,7 @@
             margin: 0;
             min-height: 100vh;
             background:
-                radial-gradient(circle at top, #3b001b, #12000a 60%);
+                radial-gradient(circle at top, #4b0024, #15000d 55%, #050005);
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
@@ -37,28 +37,29 @@
         }
 
         h1 {
-            font-size: clamp(45px, 12vw, 100px);
+            font-size: clamp(48px, 13vw, 100px);
             color: #ff4d88;
             margin: 0;
             text-shadow:
                 0 0 10px #ff1764,
-                0 0 30px #ff1764;
+                0 0 30px #ff1764,
+                0 0 60px #ff1764;
         }
 
         .subtitulo {
-            margin-top: 15px;
-            font-size: clamp(20px, 5vw, 30px);
+            margin-top: 18px;
+            font-size: clamp(19px, 5vw, 30px);
             color: #ffd6e3;
         }
 
         button {
             margin-top: 40px;
-            padding: 18px 35px;
+            padding: 18px 32px;
             border: none;
             border-radius: 50px;
             background: #ff1764;
             color: white;
-            font-size: 20px;
+            font-size: 19px;
             font-weight: bold;
             cursor: pointer;
             box-shadow: 0 0 25px #ff1764;
@@ -74,33 +75,68 @@
         }
 
         .mensagem {
+            margin-top: 25px;
             font-size: clamp(19px, 4vw, 27px);
             line-height: 1.6;
-            color: #fff;
-            margin-top: 30px;
         }
 
         .coracao {
-            font-size: 100px;
-            margin: 25px;
+            font-size: 95px;
+            margin: 20px;
             animation: pulsar 1.2s infinite;
+            filter: drop-shadow(0 0 20px #ff1764);
+        }
+
+        .contador-titulo {
+            margin-top: 45px;
+            font-size: 20px;
+            color: #ffd1df;
+        }
+
+        .contador {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .tempo {
+            min-width: 80px;
+            padding: 15px 10px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .numero {
+            display: block;
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff6b9d;
+        }
+
+        .legenda {
+            font-size: 12px;
+            color: #ffd1df;
         }
 
         .carta {
-            margin-top: 35px;
+            margin-top: 40px;
             padding: 25px;
             border-radius: 20px;
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             font-size: 18px;
             line-height: 1.7;
             color: #ffe8ef;
         }
 
         .final {
-            margin-top: 40px;
-            font-size: clamp(28px, 7vw, 55px);
+            margin-top: 45px;
+            font-size: clamp(30px, 8vw, 55px);
             color: #ff4d88;
             font-weight: bold;
             text-shadow: 0 0 20px #ff1764;
@@ -108,6 +144,7 @@
 
         .assinatura {
             margin-top: 20px;
+            padding-bottom: 40px;
             color: #ffd1df;
             font-size: 18px;
         }
@@ -116,8 +153,15 @@
             position: fixed;
             bottom: -50px;
             font-size: 25px;
-            animation: subir 6s linear forwards;
+            animation: subir linear forwards;
             pointer-events: none;
+            z-index: 10;
+        }
+
+        .musica {
+            margin-top: 25px;
+            color: #ffd1df;
+            font-size: 15px;
         }
 
         @keyframes pulsar {
@@ -133,6 +177,7 @@
         }
 
         @keyframes subir {
+
             from {
                 transform: translateY(0);
                 opacity: 1;
@@ -149,6 +194,7 @@
         }
 
         @keyframes aparecer {
+
             from {
                 opacity: 0;
                 transform: translateY(40px);
@@ -163,6 +209,13 @@
 </head>
 
 <body>
+
+    <!-- ÁUDIO -->
+
+    <audio id="musica" loop>
+        <source src="astronauta.mp3" type="audio/mpeg">
+    </audio>
+
 
     <!-- TELA INICIAL -->
 
@@ -198,11 +251,58 @@
             </div>
 
             <div class="mensagem">
-
                 Amar você é uma das coisas mais bonitas
                 que a vida me permitiu conhecer.
+            </div>
+
+
+            <!-- CONTADOR -->
+
+            <div class="contador-titulo">
+                ❤️ Juntos desde 10 de agosto de 2020 ❤️
+            </div>
+
+            <div class="contador">
+
+                <div class="tempo">
+                    <span class="numero" id="anos">0</span>
+                    <span class="legenda">ANOS</span>
+                </div>
+
+                <div class="tempo">
+                    <span class="numero" id="meses">0</span>
+                    <span class="legenda">MESES</span>
+                </div>
+
+                <div class="tempo">
+                    <span class="numero" id="dias">0</span>
+                    <span class="legenda">DIAS</span>
+                </div>
+
+                <div class="tempo">
+                    <span class="numero" id="horas">0</span>
+                    <span class="legenda">HORAS</span>
+                </div>
+
+                <div class="tempo">
+                    <span class="numero" id="minutos">0</span>
+                    <span class="legenda">MINUTOS</span>
+                </div>
+
+                <div class="tempo">
+                    <span class="numero" id="segundos">0</span>
+                    <span class="legenda">SEGUNDOS</span>
+                </div>
 
             </div>
+
+
+            <div class="musica">
+                🎵 Astronauta • Os Nonatos
+            </div>
+
+
+            <!-- CARTA -->
 
             <div class="carta">
 
@@ -221,27 +321,41 @@
 
                 <br><br>
 
-                Quero continuar vivendo momentos ao seu lado,
-                enfrentando os dias difíceis, comemorando os bons
-                e construindo nossa história pouco a pouco.
+                Desde 10 de agosto de 2020,
+                nossa história vem sendo construída
+                através de momentos, sonhos, dificuldades,
+                risadas e muito amor.
 
                 <br><br>
 
-                Você é uma pessoa muito especial para mim.
+                Quero continuar vivendo tudo isso ao seu lado.
 
                 <br><br>
 
-                E se eu pudesse escolher novamente,
-                escolheria você.
+                Quero estar com você nos dias bons,
+                nos dias difíceis e em todos os dias
+                que ainda estão por vir.
+
+                <br><br>
+
+                Se eu pudesse voltar no tempo e escolher
+                novamente...
+
+                <br><br>
+
+                Eu escolheria você.
 
             </div>
 
+
             <div class="final">
-                EU TE AMO ❤️
+                EU TE AMO, ANA CLARA ❤️
             </div>
 
             <div class="assinatura">
                 Feito especialmente para você.
+                <br><br>
+                10/08/2020 ❤️
             </div>
 
         </div>
@@ -251,16 +365,93 @@
 
     <script>
 
+        // ABRIR PRESENTE E TOCAR MÚSICA
+
         function abrirPresente() {
 
             document.getElementById("inicio").style.display = "none";
 
             document.getElementById("presente").style.display = "flex";
 
+            const musica = document.getElementById("musica");
+
+            musica.play().catch(function () {
+                console.log("O navegador bloqueou a reprodução automática.");
+            });
+
             criarCoracoes();
 
         }
 
+
+        // CONTADOR
+
+        const inicio = new Date(2020, 7, 10, 0, 0, 0);
+
+
+        function atualizarContador() {
+
+            const agora = new Date();
+
+            let anos = agora.getFullYear() - inicio.getFullYear();
+
+            let aniversario = new Date(
+                inicio.getFullYear() + anos,
+                inicio.getMonth(),
+                inicio.getDate()
+            );
+
+            if (agora < aniversario) {
+                anos--;
+                aniversario = new Date(
+                    inicio.getFullYear() + anos,
+                    inicio.getMonth(),
+                    inicio.getDate()
+                );
+            }
+
+
+            const diferenca = agora - aniversario;
+
+            const dias = Math.floor(
+                diferenca / (1000 * 60 * 60 * 24)
+            );
+
+            const horas = Math.floor(
+                (diferenca / (1000 * 60 * 60)) % 24
+            );
+
+            const minutos = Math.floor(
+                (diferenca / (1000 * 60)) % 60
+            );
+
+            const segundos = Math.floor(
+                (diferenca / 1000) % 60
+            );
+
+
+            document.getElementById("anos").textContent = anos;
+
+            document.getElementById("meses").textContent =
+                anos * 12;
+
+            document.getElementById("dias").textContent = dias;
+
+            document.getElementById("horas").textContent = horas;
+
+            document.getElementById("minutos").textContent = minutos;
+
+            document.getElementById("segundos").textContent = segundos;
+
+        }
+
+
+        atualizarContador();
+
+        setInterval(atualizarContador, 1000);
+
+
+        // CORAÇÕES
 
         function criarCoracoes() {
 
@@ -270,7 +461,9 @@
 
                 coracao.classList.add("coracao-flutuante");
 
-                coracao.innerHTML = "❤️";
+                coracao.innerHTML =
+                    ["❤️", "💕", "💗", "💖", "💓"]
+                    [Math.floor(Math.random() * 5)];
 
                 coracao.style.left =
                     Math.random() * 100 + "vw";
@@ -282,6 +475,7 @@
                     (4 + Math.random() * 4) + "s";
 
                 document.body.appendChild(coracao);
+
 
                 setTimeout(function () {
 
@@ -298,3 +492,4 @@
 </body>
 
 </html>
+
