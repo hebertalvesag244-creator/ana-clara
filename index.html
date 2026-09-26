@@ -37,6 +37,7 @@
             font-size: 45px;
             margin-bottom: 10px;
             color: #ff8bdc;
+            text-shadow: 0 0 20px rgba(255, 139, 220, 0.5);
         }
 
         .tela-inicial p {
@@ -53,12 +54,16 @@
             font-size: 17px;
             cursor: pointer;
             margin-top: 20px;
-            box-shadow: 0 0 20px #ff4fa3;
+            box-shadow: 0 0 20px rgba(255, 79, 163, 0.7);
             transition: 0.3s;
         }
 
         button:hover {
             transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.97);
         }
 
         /* PRESENTE */
@@ -73,6 +78,7 @@
         .coracao {
             font-size: 75px;
             animation: pulsar 1.3s infinite;
+            filter: drop-shadow(0 0 15px rgba(255, 80, 160, 0.7));
         }
 
         @keyframes pulsar {
@@ -92,6 +98,7 @@
         h2 {
             color: #ff8bdc;
             font-size: 32px;
+            text-shadow: 0 0 15px rgba(255, 139, 220, 0.3);
         }
 
         /* CONTADOR */
@@ -110,6 +117,7 @@
             border-radius: 15px;
             padding: 12px;
             min-width: 90px;
+            backdrop-filter: blur(5px);
         }
 
         .tempo strong {
@@ -126,17 +134,18 @@
         /* MÚSICA */
 
         .musica {
-            margin: 25px 0;
+            margin: 30px 0;
         }
 
         .musica p {
             color: #ddd;
+            font-size: 16px;
         }
 
         /* FOTO */
 
         .galeria {
-            margin-top: 40px;
+            margin-top: 45px;
         }
 
         .galeria h2 {
@@ -156,9 +165,11 @@
             object-fit: cover;
             border-radius: 22px;
             border: 3px solid rgba(255,255,255,0.3);
+
             box-shadow:
                 0 0 25px rgba(255,79,163,0.4),
                 0 15px 40px rgba(0,0,0,0.5);
+
             transition: 0.4s;
         }
 
@@ -172,24 +183,31 @@
             background: rgba(255,255,255,0.08);
             border-radius: 20px;
             padding: 25px;
-            margin-top: 35px;
+            margin-top: 40px;
             line-height: 1.8;
             font-size: 17px;
             text-align: left;
             border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .carta p:first-child {
+            color: #ff8bdc;
+            font-size: 22px;
         }
 
         /* FINAL */
 
         .final {
-            margin-top: 50px;
-            padding-bottom: 50px;
+            margin-top: 55px;
+            padding-bottom: 60px;
         }
 
         .final h1 {
             font-size: 45px;
             color: #ff6fbd;
             animation: pulsar 1.5s infinite;
+            text-shadow: 0 0 25px rgba(255, 111, 189, 0.5);
         }
 
         /* CORAÇÕES FLUTUANTES */
@@ -223,6 +241,10 @@
                 font-size: 36px;
             }
 
+            .tela-inicial p {
+                font-size: 16px;
+            }
+
             .presente {
                 padding: 30px 15px;
             }
@@ -231,8 +253,17 @@
                 font-size: 27px;
             }
 
+            .coracao {
+                font-size: 65px;
+            }
+
             .foto-container img {
                 max-height: 500px;
+            }
+
+            .carta {
+                padding: 20px;
+                font-size: 16px;
             }
 
             .final h1 {
@@ -243,7 +274,6 @@
                 min-width: 85px;
             }
         }
-
     </style>
 </head>
 
@@ -257,7 +287,9 @@
             ❤️
         </div>
 
-        <h1>ANA CLARA</h1>
+        <h1>
+            ANA CLARA
+        </h1>
 
         <p>
             Eu preparei uma coisa especial para você...
@@ -320,4 +352,275 @@
                 <strong id="segundos">0</strong>
                 <span>SEGUNDOS</span>
             </div>
+
+        </div>
+
+
+        <!-- MÚSICA -->
+
+        <div class="musica">
+
+            <p>
+                🎵 Astronauta • Os Nonatos
+            </p>
+
+            <button onclick="tocarMusica()" id="botaoMusica">
+                🎵 Tocar nossa música
+            </button>
+
+            <audio id="musica" loop preload="auto">
+
+                <source
+                    src="./astronauta.mp3"
+                    type="audio/mpeg"
+                >
+
+            </audio>
+
+        </div>
+
+
+        <!-- FOTO -->
+
+        <div class="galeria">
+
+            <h2>
+                📸 Um momento nosso
+            </h2>
+
+            <div class="foto-container">
+
+                <img
+                    src="./foto2.jpg"
+                    alt="Nosso momento ❤️"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- CARTA -->
+
+        <div class="carta">
+
+            <p>
+                Ana Clara,
+            </p>
+
+            <p>
+                Desde o dia 10 de agosto de 2020, nós começamos a construir
+                uma história que eu espero continuar escrevendo pelo resto
+                da minha vida.
+            </p>
+
+            <p>
+                Foram muitos momentos, muitas risadas, dificuldades,
+                conquistas e lembranças que fizeram a nossa história ser
+                única.
+            </p>
+
+            <p>
+                Obrigado por estar comigo, por fazer parte da minha vida
+                e por compartilhar tantos momentos ao meu lado.
+            </p>
+
+            <p>
+                Eu não sei exatamente o que o futuro vai trazer para nós,
+                mas sei que quero continuar vivendo cada capítulo ao seu lado.
+            </p>
+
+            <p>
+                Eu te amo. ❤️
+            </p>
+
+        </div>
+
+
+        <!-- FINAL -->
+
+        <div class="final">
+
+            <h1>
+                EU TE AMO,<br>
+                ANA CLARA ❤️
+            </h1>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* CONTADOR */
+
+        const inicio = new Date(
+            2020,
+            7,
+            10,
+            0,
+            0,
+            0
+        );
+
+        function atualizarContador() {
+
+            const agora = new Date();
+
+            const diferenca = agora - inicio;
+
+            const segundosTotal =
+                Math.floor(diferenca / 1000);
+
+            const segundos =
+                segundosTotal % 60;
+
+            const minutosTotal =
+                Math.floor(segundosTotal / 60);
+
+            const minutos =
+                minutosTotal % 60;
+
+            const horasTotal =
+                Math.floor(minutosTotal / 60);
+
+            const horas =
+                horasTotal % 24;
+
+            const diasTotal =
+                Math.floor(horasTotal / 24);
+
+            const anos =
+                Math.floor(diasTotal / 365.25);
+
+            const meses =
+                anos * 12;
+
+            const dias =
+                Math.floor(diasTotal);
+
+            document.getElementById("anos").textContent =
+                anos;
+
+            document.getElementById("meses").textContent =
+                meses;
+
+            document.getElementById("dias").textContent =
+                dias;
+
+            document.getElementById("horas").textContent =
+                horas;
+
+            document.getElementById("minutos").textContent =
+                minutos;
+
+            document.getElementById("segundos").textContent =
+                segundos;
+        }
+
+        atualizarContador();
+
+        setInterval(
+            atualizarContador,
+            1000
+        );
+
+
+        /* ABRIR PRESENTE */
+
+        function abrirPresente() {
+
+            document.getElementById("inicio").style.display =
+                "none";
+
+            document.getElementById("presente").style.display =
+                "block";
+
+            const musica =
+                document.getElementById("musica");
+
+            musica.play().catch(() => {
+
+                console.log(
+                    "O navegador bloqueou a reprodução automática."
+                );
+
+            });
+
+            criarCoracoes();
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+
+        /* CONTROLE DA MÚSICA */
+
+        function tocarMusica() {
+
+            const musica =
+                document.getElementById("musica");
+
+            const botao =
+                document.getElementById("botaoMusica");
+
+            if (musica.paused) {
+
+                musica.play();
+
+                botao.innerHTML =
+                    "⏸️ Pausar nossa música";
+
+            } else {
+
+                musica.pause();
+
+                botao.innerHTML =
+                    "🎵 Tocar nossa música";
+
+            }
+        }
+
+
+        /* CORAÇÕES FLUTUANTES */
+
+        function criarCoracoes() {
+
+            setInterval(() => {
+
+                const coracao =
+                    document.createElement("div");
+
+                coracao.className =
+                    "coracao-flutuante";
+
+                coracao.innerHTML =
+                    "❤️";
+
+                coracao.style.left =
+                    Math.random() * 100 + "vw";
+
+                coracao.style.animationDuration =
+                    (4 + Math.random() * 4) + "s";
+
+                document.body.appendChild(
+                    coracao
+                );
+
+                setTimeout(() => {
+
+                    coracao.remove();
+
+                }, 8000);
+
+            }, 700);
+        }
+
+    </script>
+
+</body>
+</html>
 ```
