@@ -15,51 +15,95 @@
         body {
             margin: 0;
             min-height: 100vh;
-            background: #12000a;
+            background:
+                radial-gradient(circle at top, #3b001b, #12000a 60%);
             color: white;
             font-family: Arial, sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+        }
 
+        .tela {
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-
-            text-align: center;
+            padding: 25px;
         }
 
-        .container {
+        .conteudo {
             width: 100%;
-            max-width: 900px;
-            padding: 30px 20px;
+            max-width: 750px;
         }
 
         h1 {
+            font-size: clamp(45px, 12vw, 100px);
             color: #ff4d88;
-            font-size: clamp(35px, 10vw, 90px);
             margin: 0;
-            text-shadow: 0 0 20px #ff1764;
+            text-shadow:
+                0 0 10px #ff1764,
+                0 0 30px #ff1764;
+        }
+
+        .subtitulo {
+            margin-top: 15px;
+            font-size: clamp(20px, 5vw, 30px);
+            color: #ffd6e3;
+        }
+
+        button {
+            margin-top: 40px;
+            padding: 18px 35px;
+            border: none;
+            border-radius: 50px;
+            background: #ff1764;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 25px #ff1764;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+        }
+
+        #presente {
+            display: none;
         }
 
         .mensagem {
-            margin: 30px auto;
-            max-width: 650px;
-
-            font-size: clamp(18px, 4vw, 28px);
-            line-height: 1.5;
-
-            color: #ffffff;
+            font-size: clamp(19px, 4vw, 27px);
+            line-height: 1.6;
+            color: #fff;
+            margin-top: 30px;
         }
 
         .coracao {
             font-size: 100px;
-            animation: pulsar 1s infinite;
-            margin: 20px;
+            margin: 25px;
+            animation: pulsar 1.2s infinite;
+        }
+
+        .carta {
+            margin-top: 35px;
+            padding: 25px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            font-size: 18px;
+            line-height: 1.7;
+            color: #ffe8ef;
         }
 
         .final {
-            margin-top: 30px;
-            font-size: clamp(24px, 6vw, 45px);
+            margin-top: 40px;
+            font-size: clamp(28px, 7vw, 55px);
             color: #ff4d88;
             font-weight: bold;
+            text-shadow: 0 0 20px #ff1764;
         }
 
         .assinatura {
@@ -68,28 +112,46 @@
             font-size: 18px;
         }
 
+        .coracao-flutuante {
+            position: fixed;
+            bottom: -50px;
+            font-size: 25px;
+            animation: subir 6s linear forwards;
+            pointer-events: none;
+        }
+
         @keyframes pulsar {
-            0% {
+
+            0%,
+            100% {
                 transform: scale(1);
             }
 
             50% {
                 transform: scale(1.2);
             }
+        }
 
-            100% {
-                transform: scale(1);
+        @keyframes subir {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(-110vh);
+                opacity: 0;
             }
         }
 
-        .entrada {
-            animation: aparecer 2s ease;
+        .aparecer {
+            animation: aparecer 1.5s ease;
         }
 
         @keyframes aparecer {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
 
             to {
@@ -102,28 +164,136 @@
 
 <body>
 
-    <div class="container entrada">
+    <!-- TELA INICIAL -->
 
-        <h1>ANA CLARA</h1>
+    <section class="tela" id="inicio">
 
-        <div class="mensagem">
-            Amar é escolher alguém todos os dias,
-            mesmo quando o tempo muda tudo ao nosso redor.
+        <div class="conteudo">
+
+            <h1>ANA CLARA</h1>
+
+            <div class="subtitulo">
+                Eu preparei uma coisa especial para você... ❤️
+            </div>
+
+            <button onclick="abrirPresente()">
+                💌 Abrir meu presente
+            </button>
+
         </div>
 
-        <div class="coracao">
-            ❤️
+    </section>
+
+
+    <!-- PRESENTE -->
+
+    <section class="tela" id="presente">
+
+        <div class="conteudo aparecer">
+
+            <h1>Para você ❤️</h1>
+
+            <div class="coracao">
+                ❤️
+            </div>
+
+            <div class="mensagem">
+
+                Amar você é uma das coisas mais bonitas
+                que a vida me permitiu conhecer.
+
+            </div>
+
+            <div class="carta">
+
+                Ana Clara,
+
+                <br><br>
+
+                Talvez eu nunca consiga colocar em palavras
+                tudo aquilo que sinto por você.
+
+                <br><br>
+
+                Mas quero que você saiba que, entre todas
+                as pessoas que poderiam ter cruzado o meu caminho,
+                eu sou muito feliz por ter encontrado você.
+
+                <br><br>
+
+                Quero continuar vivendo momentos ao seu lado,
+                enfrentando os dias difíceis, comemorando os bons
+                e construindo nossa história pouco a pouco.
+
+                <br><br>
+
+                Você é uma pessoa muito especial para mim.
+
+                <br><br>
+
+                E se eu pudesse escolher novamente,
+                escolheria você.
+
+            </div>
+
+            <div class="final">
+                EU TE AMO ❤️
+            </div>
+
+            <div class="assinatura">
+                Feito especialmente para você.
+            </div>
+
         </div>
 
-        <div class="final">
-            EU TE AMO, ANA CLARA ❤️
-        </div>
+    </section>
 
-        <div class="assinatura">
-            Feito especialmente para você.
-        </div>
 
-    </div>
+    <script>
+
+        function abrirPresente() {
+
+            document.getElementById("inicio").style.display = "none";
+
+            document.getElementById("presente").style.display = "flex";
+
+            criarCoracoes();
+
+        }
+
+
+        function criarCoracoes() {
+
+            setInterval(function () {
+
+                const coracao = document.createElement("div");
+
+                coracao.classList.add("coracao-flutuante");
+
+                coracao.innerHTML = "❤️";
+
+                coracao.style.left =
+                    Math.random() * 100 + "vw";
+
+                coracao.style.fontSize =
+                    (15 + Math.random() * 30) + "px";
+
+                coracao.style.animationDuration =
+                    (4 + Math.random() * 4) + "s";
+
+                document.body.appendChild(coracao);
+
+                setTimeout(function () {
+
+                    coracao.remove();
+
+                }, 8000);
+
+            }, 500);
+
+        }
+
+    </script>
 
 </body>
 
